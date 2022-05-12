@@ -1,15 +1,13 @@
 <?php
 require("../includes/database_connect.php");
 
-$full_name = $_POST['full_name'];
-$phone = $_POST['phone'];
+
 $email= $_POST['email'];
 $password= $_POST['password'];
 $password= sha1($password);
-$college_name = $_POST['college_name'];
-$gender = $_POST['gender'];
 
-$sql = "SELECT * FROM users WHERE email='$email'";
+
+$sql = "SELECT * FROM addmin WHERE email='$email'";
 // $result =  mysqli_query($db, $sql);
 $result =  mysqli_query($db,$sql );
 if (!$result) {
@@ -25,7 +23,7 @@ if ($row_count != 0) {
     return;
 }
 
-$sql = "INSERT INTO users (email, password, full_name, phone, gender, college_name) VALUES ('$email', '$password', '$full_name', '$phone', '$gender', '$college_name')";
+$sql = "INSERT INTO addmin (email, password) VALUES ('$email', '$password')";
 // $result =  mysqli_query($db, $sql);
 $result =  mysqli_query($db, $sql);
 if (!$result) {

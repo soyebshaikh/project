@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $password = sha1($password);
 
-$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+$sql = "SELECT * FROM addmin WHERE email='$email' AND password='$password'";
 $result =  mysqli_query($db, $sql);
 if (!$result) {
     $response= array("success"=> false, "message"=> "Something went wrong!");
@@ -22,8 +22,8 @@ if ($row_count == 0) {
 }
 
 $row = mysqli_fetch_assoc($result);
-$_SESSION['user_id'] = $row['id'];
-$_SESSION['full_name'] = $row['full_name'];
+$_SESSION['addmin_id'] = $row['id'];
+
 $_SESSION['email'] = $row['email'];
 
 $response= array("success" => true, "message" => "Login successful !");

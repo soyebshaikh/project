@@ -138,6 +138,7 @@ $city_name = $_GET["city"];
     </script>
     <script src="js/2.bb328bef.chunk.js"></script>
     <script src="js/main.d86a88e7.chunk.js"></script>
+  
 </body>
 
 </html>

@@ -1,6 +1,6 @@
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     var signup_form = document.getElementById("signup-form");
-    signup_form.addEventListener("submit", function (event) {
+    signup_form.addEventListener("submit", function(event) {
         var XHR = new XMLHttpRequest();
         var form_data = new FormData(signup_form);
 
@@ -19,10 +19,12 @@ window.addEventListener("load", function () {
         document.getElementById("loading").style.display = 'block';
         event.preventDefault();
     });
+    // code for the sign-form for admin page
+
 
     // code corresponding to login form
     var login_form = document.getElementById("login-form");
-    login_form.addEventListener("submit", function (event) {
+    login_form.addEventListener("submit", function(event) {
         var XHR = new XMLHttpRequest();
         var form_data = new FormData(login_form);
 
@@ -41,9 +43,15 @@ window.addEventListener("load", function () {
         document.getElementById("loading").style.display = "block";
         event.preventDefault();
     });
+
+
+
+
 });
 
-var signup_success = function (event) {
+
+// the function of the corresponding to singup
+var signup_success = function(event) {
     document.getElementById("loading").style.display = 'none';
 
     var response = JSON.parse(event.target.responseText);
@@ -55,9 +63,11 @@ var signup_success = function (event) {
     }
 };
 
+
+
 // function corresponding to login_success
-var login_success = function (event) {
-    document.getElementById("loading").style.display="none";
+var login_success = function(event) {
+    document.getElementById("loading").style.display = "none";
 
     var response = JSON.parse(event.target.responseText);
     if (response.success) {
@@ -67,7 +77,7 @@ var login_success = function (event) {
     }
 };
 
-var on_error = function (event) {
+var on_error = function(event) {
     document.getElementById("loading").style.display = 'none';
 
     alert('Oops! Something went wrong.');
